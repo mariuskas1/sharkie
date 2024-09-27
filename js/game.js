@@ -1,13 +1,58 @@
 let canvas;
-let ctx;
-let character = new MoveableObject();
+let world;
+let keyboard = new Keyboard();
+
+
 
 function init(){
     canvas = document.getElementById("canvas");
-    ctx = canvas.getContext("2d");
-    character.src = "../img/1.Sharkie/3.Swim/1.png";
-
-    console.log("My charaacter is", character);
-
-    
+    world = new World(canvas, keyboard);    
 }
+
+
+document.addEventListener("keydown", (e) => {
+    switch(e.code) {
+        case 'ArrowRight':
+            keyboard.RIGHT = true;
+            break;
+        case 'ArrowLeft':
+            keyboard.LEFT = true;
+            break;
+        case 'ArrowUp':
+            keyboard.UP = true;
+            break;
+        case 'ArrowDown':
+            keyboard.DOWN = true;
+            break;
+        case 'Space':
+            keyboard.SPACE = true;
+            break;
+        case 'KeyD':
+            keyboard.D = true;
+            break;
+    }
+});
+
+
+document.addEventListener("keyup", (e) => {
+    switch(e.code) {
+        case 'ArrowRight':
+            keyboard.RIGHT = false;
+            break;
+        case 'ArrowLeft':
+            keyboard.LEFT = false;
+            break;
+        case 'ArrowUp':
+            keyboard.UP = false;
+            break;
+        case 'ArrowDown':
+            keyboard.DOWN = false;
+            break;
+        case 'Space':
+            keyboard.SPACE = false;
+            break;
+        case 'KeyD':
+            keyboard.D = false;
+            break;
+    }
+});

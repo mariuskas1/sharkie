@@ -1,10 +1,100 @@
+@font-face {
+    font-family: 'Luckiest Guy'; 
+    src: url('img/5.Font/Luckiest_Guy/LuckiestGuy-Regular.ttf') format('truetype'); 
+}
+
+
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+
+    background-image: url("img/background1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+.start-screen-div{
+    height: 480px;
+    width: 720px;
+    background-image: url("img/3. Background/Mesa de trabajo 1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 canvas{
     background-color: black;
+    display: block;
+}
+
+
+
+h1{
+    font-family: 'Luckiest Guy';
+    font-size: 56px;
+    letter-spacing: 5px;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+    color: blue;
+}
+
+.start-img{
+    width: 200px;
+    margin-bottom: 64px;
+    margin-right: 64px;
+    transition: all 125ms ease;
+}
+
+#gameOverScreen{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#gameOverScreen .start-img{
+    margin-bottom: unset;
+    margin-right: unset;
+    margin-top: 260px;
+}
+
+.game-over-img{
+    width: 500px;
+    
+    
+}
+
+.start-img:hover{
+    cursor: pointer;
+    scale: 1.05;
+}
+
+
+.d-none{
+    display: none;
+}
+
+
+@media(max-width: 720px){
+    canvas{
+        width: 100%;
+    }
+}
+
+@media(max-height: 480){
+    canvas{
+        height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 767px) and (orientation: landscape){
+    h1{
+        display: none;
+    }
 }
