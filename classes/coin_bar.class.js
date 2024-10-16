@@ -8,13 +8,23 @@ class CoinBar extends StatusBar{
        "img/4. Marcadores/orange/100_ copia 2.png"
     ];
 
-    percentage = 100;
+    percentageCoins = 0;
     y = 40;
 
 
     constructor(){
         super();
         this.loadImages(this.IMAGES);
-        this.setPercentage(100);
+        this.setPercentage(0);
     }
+
+
+   /**
+    * This function handles the case when a coin is collected and increments the coin percentage.
+    */
+    coinCollected(){
+        this.percentageCoins += 20;
+        this.setPercentage(this.percentageCoins);
+    }
+
 }

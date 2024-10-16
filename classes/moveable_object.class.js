@@ -6,7 +6,12 @@ class MoveableObject extends DrawableObject{
 
  
 
-
+    /**
+     * This function checks if a moveable object is colliding with another object.
+     * 
+     * @param {*} mo - It takes in the other moveable object as a parameter.
+     * @returns It returns a boolean.
+     */
     isColliding(mo){
         return this.x + this.width > mo.x &&
             this.y + this.height > mo.y &&
@@ -15,11 +20,11 @@ class MoveableObject extends DrawableObject{
     }
 
    
-
-    
-
+    /**
+     * This function handles the case when an object is hit and decreases its energy.
+     */
     hit(){
-        this.energy -=5;
+        this.energy -= 20;
         if(this.energy < 0){
             this.energy = 0;
         } else{
@@ -28,18 +33,30 @@ class MoveableObject extends DrawableObject{
     }
 
 
+     /**
+     * This function handles the case when an object is hurt and makes sure it cannot be hit too often.
+     */
     isHurt(){
         let timePassed = new Date().getTime() - this.lastHit;
         timePassed = timePassed / 1000;
+        
         return timePassed < 1;
     }
 
 
-    isDead(){
+    /**
+     * This function works as a helper function to check if the character is dead.
+     * 
+     * @returns - It returns a boolean.
+     */
+    characterIsDead(){
         return this.energy == 0;
     }
 
 
+    /**
+     * This function moves an moveable object to the left evenly.
+     */
     moveLeft(){
         setInterval(()=> {
             this.x -= this.speed;
@@ -47,6 +64,11 @@ class MoveableObject extends DrawableObject{
     }
 
 
+    /**
+     * This function plays an animation that consist of several images.
+     * 
+     * @param {array} images - It takes in an array of images as a parameter.
+     */
     playAnimation(images){
         let i = this.currentImage % images.length;
         let path = images[i];

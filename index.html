@@ -6,39 +6,81 @@
     <title>Sharkie</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="img/favicon.png"/>
-    <script src="classes/drawable_object.class.js"></script>
-    <script src="classes/moveable_object.class.js"></script>
-    <script src="classes/coin.class.js"></script>
-    <script src="classes/character.class.js"></script>
-    <script src="classes/fish.class.js"></script>
-    <script src="classes/status_bar.class.js"></script>
-    <script src="classes/coin_bar.class.js"></script>
-    <script src="classes/poison_bar.class.js"></script>
-    <script src="classes/world.class.js"></script>
-    <script src="classes/background_object.class.js"></script>
-    <script src="classes/keyboard.class.js"></script>
-    <script src="classes/endboss.class.js"></script>
-    <script src="classes/attack_object.js"></script>
-    <script src="classes/level.class.js"></script>
-    <script src="levels/level1.js"></script>
-    <script src="js/game.js"></script>
-    <script src="js/script.js"></script>
+    <script src="classes/trackable_audio.class.js" ></script>
+    <script src="levels/level1.js" ></script>
+    <script src="classes/drawable_object.class.js" ></script>
+    <script src="classes/moveable_object.class.js" ></script>
+    <script src="classes/character.class.js" ></script>
+    <script src="classes/status_bar.class.js" ></script>
+    <script src="classes/coin_bar.class.js" ></script>
+    <script src="classes/poison_bar.class.js" ></script>
+    <script src="classes/keyboard.class.js" ></script>
+    <script src="classes/world.class.js" ></script>
+    <script src="js/game.js" ></script>
+    <script src="js/script.js" ></script>
+    <script src="classes/coin.class.js" ></script>
+    <script src="classes/poison_bottle.class.js" ></script>
+    <script src="classes/fish.class.js" ></script>
+    <script src="classes/jellyfish.class.js" ></script>
+    <script src="classes/background_object.class.js" ></script>
+    <script src="classes/endboss_health_bar.class.js" ></script>
+    <script src="classes/endboss.class.js" ></script>
+    <script src="classes/attack_object.class.js" ></script>
+    <script src="classes/poison_bubble.class.js" ></script>
+    <script src="classes/level.class.js" ></script>
 </head>
 
-<body>
+
+<body onload="prepareGame()">
 
     <h1>Sharkie</h1>
 
-    <div class="start-screen-div " id="startScreen">
-        <img src="img/6.Botones/Start/2.png" class="start-img" onclick="startGame()">
+    <div class="start-screen-div" id="startScreen">
+        <img class="info-img" src="img/circle-info-solid.svg" onclick="openLegalNotice()">
+        <div class="start-btns-div">
+            <button class="instructions-btn" onclick="showInstructions()">Instructions</button>
+            <img src="img/6.Botones/Start/2.png" class="start-img" onclick="startGame()">
+        </div>
     </div>
 
-    <canvas id="canvas" class="d-none" width="720" height="480"></canvas>
+    <div class="canvas-container">
+        <canvas id="canvas" class="d-none" width="720" height="480"></canvas>
+        <div class="volume-div d-none" id="volume-div" onclick="toggleVolume()">
+            <img src="img/volume-xmark-solid.svg" class="volume-img">
+        </div>
+    </div>
+    
 
-    <div class="start-screen-div d-none " id="gameOverScreen">
+    <div class="mobile-keys-div d-none hide-on-desktop" id="mobile-keys">
+        <div class="mobile-arrows">
+            <div class="arrows-first-row"><img src="img/square-caret-up-regular.svg" class="mobile-key-btn" id="mobile-arrow-up"></div>
+            <div class="arrows-second-row">
+                <img src="img/square-caret-left-regular.svg" class="mobile-key-btn" id="mobile-arrow-left">
+                <img src="img/square-caret-down-regular.svg" class="mobile-key-btn" id="mobile-arrow-down">
+                <img src="img/square-caret-right-regular.svg" class="mobile-key-btn" id="mobile-arrow-right">
+            </div>
+        </div>
+        <div class="mobile-attack-btns">
+            <div class="mobile-attack-btn" id="mobile-d-key">D</div>
+            <div class="mobile-attack-btn" id="mobile-space-bar">S</div>
+        </div>
+    </div>
+
+    <div class="start-screen-div d-none" id="gameOverScreen">
+        <div class="home-button-div" onclick="redirectToHomeScreen()"><img src="img/house-solid.svg" class="home-icon"></div>
+        
         <img src="img/6.Botones/Tittles/Game Over/Recurso 10.png" class="game-over-img">
         <img src="img/6.Botones/Try again/Recurso 17.png" class="start-img" onclick="tryAgain()">
     </div>
+
+    <div class="end-screen-div d-none" id="endScreen">
+        <div class="home-button-div" onclick="redirectToHomeScreen()"><img src="img/house-solid.svg" class="home-icon"></div>
+        <img src="img/6.Botones/Try again/Recurso 17.png" class="start-img end-img d-none" id="start-game-again-btn" onclick="startGameAgain()">
+    </div>
     
+
+    <div class="modal-bg">
+        <div class="modal-content">Turn your device to play <img src="img/rotate-right-solid (1).svg" class="modal-img"></div>
+    </div>
 </body>
 </html>
