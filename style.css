@@ -19,7 +19,8 @@ body{
 }
 
 .start-screen-div{
-    height: 480px;
+    aspect-ratio: 3 / 2;
+    
     width: 720px;
     background-image: url("img/3. Background/Mesa de trabajo 1.png");
     background-size: cover;
@@ -28,6 +29,76 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    position: relative;
+}
+
+
+#legal-notice-div{
+    max-height: 480px;
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: unset;
+    color: white;
+    padding: 32px;
+    font-family: 'Arial';
+}
+
+
+/* Custom Scrollbar for WebKit browsers */
+#legal-notice-div::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+/* Track */
+#legal-notice-div::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.8); /* Background of the track */
+    border-radius: 10px;
+}
+
+/* Handle */
+#legal-notice-div::-webkit-scrollbar-thumb {
+    background: rgb(172, 172, 172); /* Color of the scrollbar handle */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Handle on hover */
+#legal-notice-div::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.7); /* Darker color on hover */
+}
+
+/* Optional: Style scrollbar corners (where available) */
+#legal-notice-div::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+
+
+
+.blue{
+    color: blue;
+}
+
+h3 {
+    margin-top: 40px;
+}
+
+.end-screen-div{
+    height: 480px;
+    width: 720px;
+    background-image: url("img/6.Botones/Tittles/You win/Mesa de trabajo 1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
 }
 
 canvas{
@@ -35,7 +106,45 @@ canvas{
     display: block;
 }
 
+.canvas-container{
+    position: relative;
+}
 
+.volume-div{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(127,255,224);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 4px;
+    border: 2px solid white;
+}
+
+.volume-div:hover{
+    cursor: pointer;
+    scale: 1.05;
+}
+
+.volume-img{
+    width: 20px;
+    height: 20px;
+}
+
+.info-img{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.info-img:hover{
+    cursor: pointer;
+    scale: 1.1;
+}
 
 h1{
     font-family: 'Luckiest Guy';
@@ -45,11 +154,39 @@ h1{
     color: blue;
 }
 
-.start-img{
-    width: 200px;
+.start-btns-div{
+    display: flex;
+    flex-direction: column;
     margin-bottom: 64px;
     margin-right: 64px;
+    width: 200px;
+}
+
+
+.start-img{
+    width: 200px;
     transition: all 125ms ease;
+}
+
+.end-img{
+    margin-bottom: 48px;
+}
+
+.instructions-btn{
+    margin-bottom: 16px;
+    border: 3px solid white;
+    font-family: 'Luckiest Guy';
+    background-color: rgb(127,255,224);
+    color: rgb(83,26,130);
+    border-radius: 16px;
+    padding: 8px;
+    font-size: 20px;
+    transition: all 125ms ease;
+}
+
+.instructions-btn:hover{
+    cursor: pointer;
+    scale: 1.05;
 }
 
 #gameOverScreen{
@@ -76,15 +213,162 @@ h1{
 }
 
 
-.d-none{
-    display: none;
+
+.instructions-div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    margin-right: 40px;
+    width: 400px;
+}
+
+.instructions-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.instructions-img{
+    width: 170px;
+}
+
+#move-shark-img{
+    height: 48px;
+    width: 200px;
+}
+
+#d-img{
+    width: 40px;
+    margin-top: 16px;
+}
+
+#space-img{
+    height: 40px;
+}
+
+.attack-instructions-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inst-title{
+    margin-left: 24px;
+}
+
+#back-btn{
+    position: absolute;
+    top: 40px;
+    right: 56px;
+    width: 160px;
 }
 
 
+
+
+.mobile-keys-div{
+    position: fixed;
+    bottom: 24px;
+    width: 95%;
+    display: none;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+.mobile-key-btn{
+    width: 80px;
+    height: 80px;
+}
+
+.arrows-first-row{
+    display: flex;
+    justify-content: center;
+}
+
+.mobile-attack-btns{
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mobile-attack-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    color: white;
+    font-size: 56px;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 8px solid white;
+    border-radius:  8px;
+    margin-bottom: 8px;
+}
+
+.mobile-attack-btn:hover, .mobile-key-btn:hover{
+    cursor: pointer;
+}
+
+
+.modal-bg{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.808);
+}
+
+.modal-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Luckiest Guy';
+    background-color: rgb(127,255,224);
+    color: rgb(83,26,130);
+    font-size: 32px;
+    border-radius: 16px;
+    padding: 32px;
+    border: 4px solid white;
+    border-radius: 16px;
+}
+
+.modal-img{
+    margin-left: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+@media(max-width: 600px){
+    .start-btns-div{
+        margin-right: 40px;
+        margin-bottom: 40px;
+        width: 150px;
+    }
+    .start-img{
+        width: 150px;
+    }
+    .instructions-btn{
+        width: 150px;
+    }
+
+}
+
+
+
 @media(max-width: 720px){
-    canvas{
+    canvas, .start-screen-div, .end-screen-div, #gameOverScreen{
         width: 100%;
     }
+
 }
 
 @media(max-height: 480){
@@ -93,8 +377,137 @@ h1{
     }
 }
 
-@media only screen and (max-width: 767px) and (orientation: landscape){
+
+
+@media only screen and (max-width: 1024px) and (orientation: portrait) and (pointer: coarse) and (hover: none) {
+    .modal-bg{
+        display: flex;
+    }
+    .mobile-keys-div{
+        display: none;
+    }
+}
+
+
+@media only screen and (orientation: landscape) and (pointer: coarse) and (hover: none) {
     h1{
         display: none;
     }
+    body{
+        justify-content: center;
+    }
+    .mobile-keys-div{
+        display: flex;
+    }
+    .modal-bg{
+        display: none;
+    }
+}
+
+
+@media only screen and (orientation: landscape) and (pointer: coarse) and (hover: none) and (max-width: 1024px){
+    .mobile-key-btn{
+        width: 64px;
+        height: 64px;
+    }
+
+    .mobile-attack-btns{
+        width: 180px;
+
+    }
+    
+    .mobile-attack-btn{
+        width: 64px;
+        height: 64px;
+        font-size: 40px;
+        font-weight: 800;
+        border: 8px solid white;
+        border-radius:  8px;
+        margin-bottom: 8px;
+    }
+}
+
+
+.d-none{
+    display: none;
+}
+
+
+@media only screen and (pointer: fine) and (hover: hover){
+    .hide-on-desktop{
+        display: none;
+    }
+}
+
+
+@media only screen and (orientation: landscape) and (pointer: coarse) and (hover: none){
+    canvas, .start-screen-div, .end-screen-div, #gameOverScreen{
+        aspect-ratio: 3 / 2;
+        width: 100%;
+        max-height: 100vh;
+    }
+}
+
+@media only screen and (orientation: landscape) and (pointer: coarse) and (hover: none) and (max-height: 440px){
+    .mobile-keys-div{
+        bottom: 4px;
+    }
+}
+
+@media only screen and (orientation: landscape) and (pointer: coarse) and (hover: none) and (max-height: 380px){
+    .mobile-key-btn{
+        width: 48px;
+        height: 48px;
+    }
+
+    .mobile-attack-btns{
+        width: 130px;
+    }
+    
+    .mobile-attack-btn{
+        width: 48px;
+        height: 48px;
+        font-size: 40px;
+        font-weight: 800;
+        border: 6px solid white;
+        border-radius:  8px;
+        margin-bottom: 8px;
+    }
+}
+
+
+@media(max-width: 800px){
+    #legal-notice-div{
+        width: 80%;
+        aspect-ratio: unset;
+    }
+    
+}
+
+@media(min-height: 1000px){
+    body{
+        justify-content: center;
+    }
+}
+
+
+.home-button-div{
+    position: absolute;
+    background-color: rgb(127,255,224);
+    top: 12px;
+    right: 12px;
+    padding: 4px;
+    border: 2px solid white;
+    border-radius: 8px;
+    transition: all 125ms ease;
+}
+
+.home-icon{
+    height: 20px;
+    width: 20px;
+}
+
+.home-button-div:hover{
+    cursor: pointer;
+    scale: 1.1;
 }
